@@ -15,7 +15,7 @@ Dengan script ini, semua data (1000+ customer) bisa di-scrape otomatis dan dieks
   - State
   - Area
   - Phone
-  (bisa di ganti)
+  - (bisa di ganti)
 
 ## 📦 Requirements
 - Python **3.8+**
