@@ -9,8 +9,8 @@ options.add_argument("--start-maximized")
 driver = webdriver.Chrome(options=options)
 
 # === BUKA HALAMAN ===
-driver.get("http://157.66.14.118:5000/oxysystem-ppm/ims/general/customer.jsp")
-print("👉 Login manual jika ada, lalu tekan ENTER di terminal...")
+driver.get("###") # ganti sesuai URL
+print("👉 Login manual jika ada, lalu tekan ENTER di terminal...") # sesuai website masing masing
 input()
 
 all_data = []
@@ -21,7 +21,7 @@ while True:
     print(f"📄 Scraping page {page}...")
 
     # cari tabel utama (class=listgen)
-    table = driver.find_element(By.CSS_SELECTOR, "table.listgen")
+    table = driver.find_element(By.CSS_SELECTOR, "table.listgen") # ganti selector jika diperlukan
     rows = table.find_elements(By.TAG_NAME, "tr")
 
     # skip row pertama (header)
@@ -38,13 +38,13 @@ while True:
     prev_first_row = first_row
 
     # auto klik tombol Next
-    driver.execute_script("cmdListNext()")
+    driver.execute_script("cmdListNext()") # ganti sesuai fungsi JS di web
     time.sleep(2)
     page += 1
 
 # === SIMPAN KE EXCEL ===
-df = pd.DataFrame(all_data, columns=["Type", "Code", "Name", "Address", "Province", "State", "Area", "Phone"])
-df.to_excel("customers.xlsx", index=False)
+df = pd.DataFrame(all_data, columns=["Type", "Code", "Name", "Address", "Province", "State", "Area", "Phone"]) # ganti kolom sesuai kebutuhan
+df.to_excel("###.xlsx", index=False) # ganti nama file sesuai kebutuhan
 
 driver.quit()
-print("🎉 Export selesai! File tersimpan: customers.xlsx")
+print("🎉 Export selesai! File tersimpan: ###.xlsx")
