@@ -33,7 +33,7 @@ while True:
     # check apakah udah di last page
     first_row = rows[1].text if len(rows) > 1 else None
     if first_row == prev_first_row:
-        print("✅ Udah sampai last page.")
+        print("✅ sudah sampai Last Page.")
         break
     prev_first_row = first_row
 
